@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ name }} / {{age }} years</p>
+        <p>{{ sex }}</p>
+        <p>I love {{ type.fav }}</p>
+    </div>
+    <input type="text" id="input">
+    <a href="javascript:void(0);" onclick="change()">change name</a>
+
+    <script src="lvue.js"></script>
+    <script>
+        // 实例化lvue
+        const lvue = new LVue({
+            el: '#app',
+            data: {
+                name: 'Jack',
+                age: 15,
+                type: {
+                    fav: 'math'
+                }
+            }
+        })
+        // 改变数据
+        const change = function () {
+            lvue.setData({ name: document.querySelector('#input').value })
+        }
+
+    </script>
+</body>
+
+</html>
